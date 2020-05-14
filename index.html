@@ -1,4 +1,4 @@
-/* <?php		
+<!--<?php
     error_reporting(0);
         
 
@@ -11,6 +11,14 @@
 
     $invalidLogin = "";
 
+    
+    if  ($_SESSION["loginError"] == 'UserStatus'  ) 
+    {
+       $_SESSION["loginError"] = 'OFF';
+       $invalidLogin = '<div style="color: red;" id="dialog" title="Login Error"><p> user account was disabled </p></div>';
+       session_destroy(); 
+    }
+
     if  ($_SESSION["loginError"] == 'ON'  ) 
     {
     	 $_SESSION["loginError"] = 'OFF';
@@ -20,7 +28,7 @@
   	session_start();				 
     $token =  md5(uniqid(mt_rand(),true));
   	$_SESSION['token'] = $token;
-?> */
+?> -->
 <!DOCTYPE html> 
 <head>
   <meta charset="utf-8">
